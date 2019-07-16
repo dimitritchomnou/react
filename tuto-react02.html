@@ -1,0 +1,292 @@
+  <!DOCTYPE html>
+  <html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <!--integration des navigateur Internet Explorer-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--integration affichage sur mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React tuto</title>
+    <link rel="shortcut icon" href="http://www.avocatparis.org/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link href="https://espacepro.avocatparis.org/templates/cepon/css/odafont.css" rel="stylesheet" media="screen" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- React file  -->
+    <!-- Load React API -->
+    <script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <!-- Load React DOM-->
+    <script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <!-- Load Babel Compiler -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <!-- End react file -->
+    <style>
+      #main-navbar,
+      #main-content {
+        font-family: 'Gotham Rounded SSm A', Gotham Rounded SSm B, Archer SSm A,Archer SSm B, Serif;
+      }
+      .t3-topbars {
+        background-color: #e0e0e0;
+        font-size: 12px;
+        min-height: 42px;
+        overflow: hidden;
+        color: #777777;
+      }
+      a{
+        color: #52b7ba;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      a:hover{
+        color: #52b7ba;
+        text-decoration: none;
+      }
+      .wrapper-body {
+        background-color: #f6f6f6;
+      }
+      .icon-logo-con{
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjRkZGRkZGIiB5PSIyMHB4IiB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iMTAwcHgiIHdpZHRoPSIxNTBweCI+PGc+PHBhdGggZD0iTTQ3LjU1IDQ5LjQyaC41YzEwLjMgMCAxOC43Ni04LjQ0IDE4Ljc2LTE4Ljc2VjI1LjljMC0xMC4zLTguNDQtMTguNzYtMTguNzYtMTguNzZoLS41Yy0xMC4zIDAtMTguNzUgOC40NS0xOC43NSAxOC43N3Y0Ljc2YzAgMTAuMzIgOC40MyAxOC43NiAxOC43NSAxOC43NnpNMTMyLjY3IDg5Ljg4aC0xNC4xNGwyLjQzLTYuMjUgMTIuNi0zMi40N2MuNDgtMS4yLS40LTIuNS0xLjctMi41SDgxLjMyYy0uNzYgMC0xLjQ0LjUtMS43IDEuMkw3NC44NCA2M2MtLjQ0IDEuMjMtMiAxLjU4LTIuOTcuNy0zLjktMy41Ni05LjA4LTUuNzQtMTQuNzUtNS43NEg0MC4zYy0xMy4xMiAwLTIzLjg0IDEwLjczLTIzLjg0IDIzLjg0IDAgMSAuOCAxLjgyIDEuODIgMS44Mmg1LjEzYzEuMDIgMCAxLjg0LS44IDEuODQtMS44MiAwLTguMyA2Ljc0LTE1LjA1IDE1LjA1LTE1LjA1aDE2LjgzYzQuMTIgMCA3LjggMS45IDEwLjIzIDQuODYuOTggMS4yMi4xNSAzLjAzLTEuNCAzLjAzaC0xNi41Yy0xLjAyIDAtMS44NC44Mi0xLjg0IDEuODN2NWMwIDEgLjgyIDEuODMgMS44MyAxLjgzSDc1LjQ0Yy43NyAwIDEuNDYtLjUgMS43Mi0xLjIybDguNS0yMy41NWMuMjctLjczLjk2LTEuMiAxLjczLTEuMmgzMS44YzEuMyAwIDIuMTggMS4yOCAxLjcgMi40OGwtMTEuMiAyOC45Yy0uMjguNzItLjk2IDEuMTgtMS43IDEuMThIMTcuMzJjLTEgMC0xLjgzLjgyLTEuODMgMS44M3Y1YzAgMS4wMi44MiAxLjg0IDEuODMgMS44NEgxMzIuNjhjMSAwIDEuODMtLjgyIDEuODMtMS44M3YtNWMwLTEtLjgyLTEuODItMS44My0xLjgyek03MC4zNSA4My42M2guNjdsLS42Ny0uMTR6Ii8+PC9nPjwvc3ZnPg==");
+        background-repeat: no-repeat;
+        display: block;
+        width: 160px;
+        height: 110px;
+        background-position: center center;
+        background-size: cover;
+        margin: 0 auto;
+      }
+
+      #t3-header {
+        background-color: #53b7ba;
+      }
+      .t3-topbars {
+        background-color: #53b8ba;
+        font-size: 12px;
+        min-height: 42px;
+        overflow: hidden;
+        color: #777777;
+      }
+      #main-navbar {
+        margin-bottom: 0px;
+        border: none;
+        background-color: #f6f6f6;
+        border-radius: 0;
+      }
+      .content-404-style .fa-wrench {
+        font-size: 38px;
+        color: #ea7666;
+      }
+      .bloc-content {
+        background-color: #fff;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+      .footer {
+        background-color: #333333;
+        padding-bottom: 91px;
+        padding-top: 90px;
+        display: block;
+        border-radius: 0;
+        color: #fff;
+      }
+      .icon_site-private-con{
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBmaWxsPSIjZmZmIiB5PSIyMHB4IiB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iMjVweCIgd2lkdGg9IjI1cHgiPjxnPjxwYXRoIGQ9Ik0yMi42LDE3LjJMMjAuMSw3LjFjLTAuMi0wLjktMS0xLjUtMS44LTEuNmwwLTAuM2MtMC4xLTEuMS0xLTItMi4yLTJsLTIuNiwwLjFsMC0wLjJjLTAuMS0xLjEtMS0yLTIuMi0xLjkNCgkJYy0wLjYsMC0xLjEsMC4zLTEuNCwwLjdDOS41LDIuMyw5LjMsMi45LDkuMywzLjRjMCwwLjEsMCwwLjEsMCwwLjJMNC42LDMuOGMtMS4xLDAuMS0yLDEtMiwyLjJsMC42LDExLjVjMCwwLjYsMC4zLDEuMSwwLjcsMS40DQoJCWMwLjQsMC4zLDAuOSwwLjUsMS40LDAuNWMwLDAsMC4xLDAsMC4xLDBsMi43LTAuMWwwLjMsMS40YzAuMiwwLjksMS4xLDEuNiwyLDEuNmMwLjIsMCwwLjMsMCwwLjUtMC4xbDEwLjEtMi41DQoJCUMyMi4yLDE5LjQsMjIuOSwxOC4zLDIyLjYsMTcuMnogTTEwLjcsMy4zYzAtMC4yLDAtMC40LDAuMi0wLjVjMC4xLTAuMSwwLjMtMC4yLDAuNS0wLjJjMC40LDAsMC43LDAuMywwLjcsMC42bDAsMC4ybC0xLjQsMC4xDQoJCUMxMC43LDMuNSwxMC43LDMuNCwxMC43LDMuM3ogTTUuNCwxOEw1LjQsMThjLTAuMiwwLTAuNCwwLTAuNS0wLjJjLTAuMS0wLjEtMC4yLTAuMy0wLjItMC41TDQuMSw1LjljMC0wLjQsMC4zLTAuNywwLjctMC43DQoJCWw3LjUtMC40bDAuMiwyLjVjMCwwLjIsMCwwLjQtMC4yLDAuNWMtMC4xLDAuMS0wLjMsMC4yLTAuNSwwLjJjLTAuMiwwLTAuNCwwLTAuNS0wLjJDMTEuMSw3LjgsMTEsNy42LDExLDcuNQ0KCQljMC0wLjQtMC4zLTAuNy0wLjctMC42Yy0wLjQsMC0wLjcsMC40LTAuNiwwLjdjMCwwLjYsMC4zLDEuMSwwLjcsMS40YzAuNCwwLjMsMC45LDAuNSwxLjQsMC41YzAsMCwwLjEsMCwwLjEsMA0KCQljMC42LDAsMS4xLTAuMywxLjQtMC43YzAuNC0wLjQsMC41LTAuOSwwLjUtMS41bC0wLjItMi41bDIuNi0wLjFjMC40LDAsMC43LDAuMywwLjcsMC43bDAuNiwxMS41YzAsMC40LTAuMywwLjctMC43LDAuN0w1LjQsMTh6DQoJCSBNMjAuOCwxOC40bC0xMC4xLDIuNWMtMC40LDAuMS0wLjctMC4xLTAuOC0wLjVsLTAuMy0xLjFsNy40LTAuNGMxLjEtMC4xLDItMSwyLTIuMmwtMC41LTkuOGMwLjIsMC4xLDAuNCwwLjMsMC40LDAuNWwyLjUsMTAuMQ0KCQlDMjEuNCwxNy45LDIxLjEsMTguMywyMC44LDE4LjR6Ii8+PC9nPjwvc3ZnPg==");
+        background-repeat: no-repeat;
+        content: "";
+        display: inline-block;
+        width: 90px;
+        height: 90px;
+        background-size: cover;
+      }
+      .marge {
+        padding-top: 10px;
+        padding-bottom: 50px;
+      }
+
+    </style>
+  </head>
+  <body class="wrapper-body">
+   <!-- <div class="t3-topbars">
+   </div> -->
+   <div id="main-content" class="container-fluid">
+    <div id="t3-header" class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <header id="t3-header">  
+          <div class="row marge">
+            <div class="pull-left">
+              <span class="icon-logo-con"></span>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+    <div class="row">
+      <nav id="main-navbar" class="navbar navbar-default">
+        <div class="container">
+        </div>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-10 bloc-content">
+            <div class="content-404-style">
+              <i class="fa fa-wrench" aria-hidden="true"></i>
+              <h3>Tutoriel React.JS</h3>
+              <hr>
+              <!-- https://codepen.io/aspittel/embed/rZLaeJ/?height=483&theme-id=0&default-tab=result&embed-version=2 -->
+              <!-- Content facebook -->
+              <!--  Block Status -->
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="thumbnail">
+                    <img src="images/f_eactes.jpg" class="profile-pic">
+                  </div>
+                </div>
+                <div id="root"></div>
+              </div>
+              <!-- End Block status -->
+                
+              <!-- End content facebook -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row marge">
+    </div>
+    <div class="row footer">
+      <div class="col-md-offset-1 col-md-3">
+        <a href="http://www.avocatparis.org/" target="_blank">
+          <span class="icon_site-private-con">
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script type="text/babel">
+
+    //Component Comment
+    class Comment extends React.Component{
+	    constructor(){
+		    super()
+
+        this.handleChange = this.handleChange.bind(this)
+
+		    this.state={
+		    	characterCount: 0
+			}
+		}
+
+    //Fonction onChange
+		handleChange(event){
+			{/*console.log(event.target.value);*/}
+			this.setState({
+        characterCount: event.target.value.length
+      })
+  	}
+
+      render(){
+        return(
+          <div>
+            <textarea className="form-control" placeholder="Write a comment..."  onChange={this.handleChange}/>
+            {/*appel variable*/}
+            <small>{this.props.maxLetters - this.state.characterCount /*this.props.maxLetters*/} Remaining</small>
+          </div>
+        )
+      }
+    }
+
+    //Component LikeIcon
+    class LikeIcon extends React.Component{
+      render(){
+        return(
+          <div>
+            <span className="fa-stack fa-sm">
+              <i className="fa fa-circle fa-stack-2x blue-icon"></i>
+              <i className="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+            </span>
+          </div>
+        )
+      }
+    }
+
+    //Component Like
+    class Like extends React.Component{
+
+      //instance 
+      constructor(){
+        super()
+
+        this.state = {
+          like: false
+        }
+
+        this.toggleLike = this.toggleLike.bind(this)
+      }
+
+      //Method for like event
+      toggleLike(){
+        this.setState(previousState => ({
+          liked: !previousState.liked
+        }))
+      }
+
+      render(){
+        return(
+          <div>
+            {/* Inclut le composant LikeIcon à l'intérieur du composant like*/}
+            <div className="col-md-12">
+              {this.state.liked && <LikeIcon />}
+            </div>
+            <hr />
+            <div>
+              <button type="button" className="btn btn-primary" onClick={this.toggleLike}>
+                <i className="fa fa-thumbs-o-up fa-4 align-middle" aria-hidden="true" />
+                &nbsp;
+                <span className="align-middle">Like</span>
+              </button>
+            </div>
+          </div>
+        )
+      }
+    }
+
+
+    //component Status
+    class Status extends React.Component{
+      render(){
+        return(
+        <React.Fragment>
+          <div className="col-md-10 profile-row">
+            <div className="row">
+              <a href="#">The Zen of Programming</a>
+            </div>
+            <div className="row">
+              <small className="post-time">10 mins</small>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <p>Hello world!</p>
+            </div>
+          </div>
+          <div className="col-md-12">
+            <Like />
+          </div>
+          <div className="card-footer text-muted">
+            <Comment maxLetters={280}/>
+          </div>
+        </React.Fragment>
+        )
+      }
+    }
+    ReactDOM.render(<Status />, document.getElementById("root"));
+
+    
+
+
+  </script>
+  </body>
+  </html>
